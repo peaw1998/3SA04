@@ -8,7 +8,7 @@ export default class Weather extends React.Component {
         return (
             <View style={styles.container}>
                 <Text>{this.props.zipCode}</Text>
-            </View>
+            </View> 
         );
     }
 }
