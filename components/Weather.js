@@ -11,9 +11,13 @@ export default class Weather extends React.Component {
             }
         }
     }
-
+    componentDidUpdate = (prevProps) => {
+        if (prevProps.zipCode !== this.props.zipCode) {
+            this.fetchData()
+        }
+    }
     fetchData = () => {
-        fetch(`http://api.openweathermap.org/data/2.5/weather?q=90110,th&units=metric&APPID=6e22eda0422b463a1a0c4e624e7af0e2`)
+        fetch(`http://api.openweathermap.org/data/2.5/weather?q=90110,th&units=metric&APPID=888ddf5766a560c4d343a33c42926d65`)
             .then((response) => response.json())
             .then((json) => {
                 this.setState(
@@ -30,16 +34,21 @@ export default class Weather extends React.Component {
             });
     }
     componentDidMount = () => this.fetchData()
+    componentDidUpdate = (prevProps) => {
+        if (prevProps.zipCode !== this.props.zipCode) {
+            this.fetchData()
+        }
+    }
 
     render() {
         return (
             <View style={styles.container}>
                 <ImageBackground source={require('./bg.jpeg')} style={styles.backdrop}>
                     <View style={styles.flexDir}>
-                    <Text style={styles.text1}>Zip code is {this.props.zipCode}.</Text>
+                        <Text style={styles.text1}>Zip code is {this.props.zipCode}.</Text>
                         <Forecast {...this.state.forecast} />
-                     </View>
-                   
+                    </View>
+
                 </ImageBackground>
             </View >
         );
@@ -58,5 +67,5 @@ const styles = StyleSheet.create({
         opacity: 0.5,
 
     },
-    text1: { textAlign: 'center', fontSize: 30, color: 'white',  },
+    text1: { textAlign: 'center', fontSize: 30, color: 'white', },
 });

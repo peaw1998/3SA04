@@ -9,11 +9,14 @@ const availableZipItems = [
     { place: 'Chonburi', code: '20000' },
 ]
 const ZipItem = ({ place, code, navigate }) => (
-    <View style={styles.zipItem}>
-        <Text style={styles.zipPlace}>{place}</Text>
-        <Text style={styles.zipCode}>{code}</Text>
-    </View>
+    <TouchableHighlight onPress={() => navigate('Weather', { zipCode: code })}>
+        <View style={styles.zipItem}>
+            <Text style={styles.zipPlace}>{place}</Text>
+            <Text style={styles.zipCode}>{code}</Text>
+        </View>
+    </TouchableHighlight>
 )
+
 
 const _keyExtractor = item => item.code
 export default class WeatherScreen extends React.Component {
@@ -37,7 +40,7 @@ export default class WeatherScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-    zipItem: {flexDirection: 'row', margin: 20},
-    zipPlace: {flex: 2},
-    zipCode: {flex: 2}  
+    zipItem: { flexDirection: 'row', margin: 20 },
+    zipPlace: { flex: 2 },
+    zipCode: { flex: 2 }
 });
