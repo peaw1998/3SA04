@@ -7,7 +7,7 @@ const RootStack = createStackNavigator({
   ZipCode: ZipCodeScreen
 }, {
     initialRouteName: 'Weather',
-    initialRouteParams: {zipCode: '90110'}
+    initialRouteParams: { zipCode: '90110' }
   })
 export default class App extends React.Component {
   render() {

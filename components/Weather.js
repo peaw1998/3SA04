@@ -43,12 +43,12 @@ export default class Weather extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <ImageBackground source={require('./bg.jpeg')} style={styles.backdrop}>
+                <ImageBackground source={require('./peaw.jpg')} style={styles.backdrop}>
                     <View style={styles.flexDir}>
                         <Text style={styles.text1}>Zip code is {this.props.zipCode}.</Text>
                         <Forecast {...this.state.forecast} />
                     </View>
-
+                    <Text style={styles.text2}>PIMWIPA SAKULKHAM</Text>
                 </ImageBackground>
             </View >
         );
@@ -68,4 +68,5 @@ const styles = StyleSheet.create({
 
     },
     text1: { textAlign: 'center', fontSize: 30, color: 'white', },
+    text2: { textAlign: 'center', fontSize: 25, color: 'white', },
 });

@@ -5,7 +5,7 @@ export default class WeatherScreen extends React.Component {
     static navigationOptions = ({ navigation }) => {
         return {
             headerTitle: (<Text>Weather</Text>),
-            header: (
+            headerRight: (
                 <Button title="Change zip" onPress={() => navigation.navigate('ZipCode')}
                 />
             )
